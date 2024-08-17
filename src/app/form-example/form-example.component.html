@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName" />
+      <div *ngIf="firstName?.invalid && firstName?.touched">
+        <small>First name must be at least 2 characters long.</small>
+      </div>           
+    </div>
+  
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName" />
+      <div *ngIf="lastName?.invalid && lastName?.touched">
+        <small>Last name must be at least 2 characters long.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="country">Country:</label>
+      <input id="country" formControlName="country" />
+      <div *ngIf="country?.invalid && country?.touched">
+        <small>Country must be at least 5 characters long.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="note">Note:</label>
+      <textarea id="note" formControlName="note"></textarea>
+      <div *ngIf="note?.invalid && note?.touched">
+        <small>Note must be at least 10 characters long.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <button type="button" (click)="onReset()">Reset</button>
+  </form>
+  
